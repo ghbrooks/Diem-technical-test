@@ -5,7 +5,7 @@ export async function loader() {
     const response = await fetch('https://dummyjson.com/products/1');
     // console.log(response)
     const product = await response.json();
-    // console.log(product);
+    console.log(product);
     return product;
   } catch (err) {
     console.log(err);
@@ -40,17 +40,22 @@ export default function App() {
           <header>LOGO</header>
           <main>
             <section className="product-images">
-              <img src={product.images[0]} alt="" />
-              <img src={product.images[1]} alt="" />
-              <img src={product.images[2]} alt="" />
-              <img src={product.images[3]} alt="" />
-              <img src={product.images[4]} alt="" />
+              <div className="product-images-primary">
+                <img src={product.images[0]} alt="" />
+              </div>
+              <div className="product-images-secondary">
+                {product.images.slice(1).map((image) => (
+                  <a href={image} target="_blank">
+                    <img src={image} alt="" />
+                  </a>
+                ))}
+              </div>
             </section>
             <section className="product-details">
-              <h2>{product.title}</h2>
-              <p>{product.rating}</p>
-              <p>{product.price}</p>
-              <p>{product.description}</p>
+              <h2 className="product-details-text">{product.title}</h2>
+              <p className="product-details-text">{product.rating}</p>
+              <p className="product-details-text">{product.price}</p>
+              <p className="product-details-text">{product.description}</p>
             </section>
           </main>
           <footer>footer</footer>
