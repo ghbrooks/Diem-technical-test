@@ -1,4 +1,5 @@
 import { Links, Meta, Outlet, Scripts, LiveReload, useLoaderData } from '@remix-run/react';
+import Images from './components/images';
 
 export async function loader() {
   try {
@@ -39,18 +40,7 @@ export default function App() {
         <container>
           <header>LOGO</header>
           <main>
-            <section className="product-images">
-              <div className="product-images-primary">
-                <img src={product.images[0]} alt="" />
-              </div>
-              <div className="product-images-secondary">
-                {product.images.slice(1).map((image) => (
-                  <a href={image} target="_blank">
-                    <img src={image} alt="" />
-                  </a>
-                ))}
-              </div>
-            </section>
+            <Images product={product} />
             <section className="product-details">
               <h2 className="product-details-text">{product.title}</h2>
               <p className="product-details-text">{product.rating}</p>
