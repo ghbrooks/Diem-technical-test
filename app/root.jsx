@@ -24,6 +24,7 @@ export default function App() {
         <link rel="icon" href="data:image/x-icon;base64,AA" />
         <link rel="stylesheet" href="./reset.css" />
         <link rel="stylesheet" href="./styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Meta />
         <Links />
       </head>
