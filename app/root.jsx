@@ -1,5 +1,6 @@
 import { Links, Meta, Outlet, Scripts, LiveReload, useLoaderData } from '@remix-run/react';
 import Images from './components/images';
+import Stars from './components/stars';
 
 // logic for getting and storing Product data from remote api
 export async function loader() {
@@ -44,8 +45,9 @@ export default function App() {
             <Images product={product} />
             <section className="product-details">
               <h2 className="product-details-text">{product.title}</h2>
-              <p className="product-details-text">{product.rating}</p>
-              <p className="product-details-text">{product.price}</p>
+              <p className="product-details-text"> <Stars product={product} />{product.rating} / 5.00</p>
+             
+              <p className="product-details-text">£{product.price}</p>
               <p className="product-details-text">{product.description}</p>
             </section>
           </main>
