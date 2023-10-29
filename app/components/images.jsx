@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Images({ product }) {
   return (
     <section className="product-images">
@@ -8,7 +6,7 @@ export default function Images({ product }) {
       </div>
       <div className="product-images-secondary">
         {product.images.slice(1).map((image) => (
-          <a href={image} target="_blank">
+          <a key="{item}" href={image} target="_blank">
             <img src={image} alt="" />
           </a>
         ))}

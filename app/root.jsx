@@ -1,12 +1,13 @@
 import { Links, Meta, Outlet, Scripts, LiveReload, useLoaderData } from '@remix-run/react';
 import Images from './components/images';
 
+// logic for getting and storing Product data from remote api
 export async function loader() {
   try {
     const response = await fetch('https://dummyjson.com/products/1');
     // console.log(response)
     const product = await response.json();
-    console.log(product);
+    // console.log(product);
     return product;
   } catch (err) {
     console.log(err);
